@@ -94,8 +94,6 @@ class Solution(StrSplitSolution):
                             new_char_idx = direction[1] + char_index
 
                             if self.input[new_line_idx][new_char_idx] == "*":
-                                print(
-                                    f"{curr_num} -> {new_line_idx}, {new_char_idx}")
                                 key = (new_line_idx, new_char_idx)
 
                         except IndexError:
