@@ -47,6 +47,7 @@ class Solution(TextSolution):
                 ranges.append(list(map(int, line.split())))
 
             new_seeds = []
+
             while 1:
                 if len(seeds) <= 0:
                     break
