@@ -4,51 +4,11 @@
 
 from functools import lru_cache
 from ...base import StrSplitSolution, answer
-from itertools import product
-from tqdm import tqdm
 
 
 class Solution(StrSplitSolution):
     _year = 2023
     _day = 12
-
-    def count_valid_arrangements(self, puzzle_row, constraints):
-        num_unknowns = puzzle_row.count('?')
-
-        possible_combinations = product(['.', '#'], repeat=num_unknowns)
-
-        def matches_constraints(arrangement, constraints):
-            count = 0
-            constraint_index = 0
-
-            for char in arrangement:
-                if char == '#':
-                    count += 1
-                else:
-                    if count > 0:
-                        if constraint_index >= len(constraints) or count != constraints[constraint_index]:
-                            return False
-                        constraint_index += 1
-                        count = 0
-
-            if count > 0:
-                if constraint_index >= len(constraints) or count != constraints[constraint_index]:
-                    return False
-                constraint_index += 1
-
-            return constraint_index == len(constraints)
-
-        valid_count = 0
-
-        for combination in possible_combinations:
-            temp_row = puzzle_row
-            for char in combination:
-                temp_row = temp_row.replace('?', char, 1)
-
-            if matches_constraints(temp_row, constraints):
-                valid_count += 1
-
-        return valid_count
 
     def part_1(self) -> int:
         total = 0
