@@ -5,16 +5,6 @@
 from ...base import StrSplitSolution, answer
 
 
-def move_list(in_: list) -> list:
-    new_list = []
-
-    for x in in_:
-        if x != None:
-            new_list.append(x)
-
-    return new_list
-
-
 class Solution(StrSplitSolution):
     _year = 2023
     _day = 15
